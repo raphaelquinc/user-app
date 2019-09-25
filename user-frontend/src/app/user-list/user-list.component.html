@@ -1,0 +1,26 @@
+<div class="card my-5">
+  <div class="card-body">
+
+    <div *ngFor="let group of groups | keyvalue">
+      <h1>{{ group.key }}</h1>
+
+      <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col">Group</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of group.value">
+          <td>{{ user.id }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.groupId }}</td>
+          <td><button id="{{ user.id }}" (click)="delete($event)">Delete</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
